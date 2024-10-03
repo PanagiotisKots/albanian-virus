@@ -1,7 +1,7 @@
 #include <windows.h>
 
 int main() {
-    // The exact text from the image
+   
     const char* message = "Hi, I am an Albanian virus but because of poor technology in my country unfortunately I am not able to harm your computer.\n"
                           "Please be so kind to delete one of your important files yourself and then forward me to other users.\n"
                           "Many thanks for your cooperation! Best regards, Albanian virus.";
@@ -16,7 +16,7 @@ int main() {
             MB_YESNOCANCEL | MB_ICONERROR | MB_SYSTEMMODAL // Yes, No, Cancel buttons, error icon, system modal
         );
 
-        // Handle the response (optional)
+        // Handle the response 
         if (response == IDYES) {
             // User clicked Yes (do nothing or add any custom logic here)
         } else if (response == IDNO) {
