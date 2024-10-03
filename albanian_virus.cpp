@@ -1,33 +1,29 @@
-#include <windows.h>  // For MessageBox and other Windows API functions
-#include <cstdlib>    // For rand and srand
-#include <ctime>      // For time
+#include <windows.h>
 
 int main() {
-    srand(time(0)); // Seed for random positioning of windows
+    // The exact text from the image
+    const char* message = "Hi, I am an Albanian virus but because of poor technology in my country unfortunately I am not able to harm your computer.\n"
+                          "Please be so kind to delete one of your important files yourself and then forward me to other users.\n"
+                          "Many thanks for your cooperation! Best regards, Albanian virus.";
 
-    // The full Albanian Virus message
-    const char* message = "Hi, I am an Albanian Virus.\n\n"
-                          "As you may have already guessed, I don't have advanced technology.\n"
-                          "So please delete a folder on your hard disk manually and send me to everyone you know.\n\n"
-                          "Thank you for your cooperation.";
-
+    // Infinite loop to continuously display the message box
     while (true) {
-        // Randomize the window position coordinates
-        int xPos = rand() % 800;
-        int yPos = rand() % 600;
-
-        // Display the pop-up message with the full text
-        MessageBox(
+        // Display the pop-up message with "Yes", "No", and "Cancel" buttons
+        int response = MessageBox(
             NULL,                           // No owner window
             message,                        // Full message text
-            "Albanian Virus",               // Message box title
-            MB_OK | MB_ICONERROR | MB_SYSTEMMODAL // OK button, error icon, system modal
+            "Virus Alert!",                 // Title of the message box
+            MB_YESNOCANCEL | MB_ICONERROR | MB_SYSTEMMODAL // Yes, No, Cancel buttons, error icon, system modal
         );
 
-        // Optional: Move the pop-up to a random position
-        HWND hWnd = FindWindow(NULL, "Albanian Virus");
-        if (hWnd) {
-            MoveWindow(hWnd, xPos, yPos, 400, 200, TRUE); // Reposition window
+        // Handle the response (optional)
+        if (response == IDYES) {
+            // User clicked Yes (do nothing or add any custom logic here)
+        } else if (response == IDNO) {
+            // User clicked No (optional logic here)
+        } else if (response == IDCANCEL) {
+            // User clicked Cancel, exit the loop (terminate the program)
+            break;
         }
     }
 
