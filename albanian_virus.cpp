@@ -18,9 +18,9 @@ int main() {
 
         // Handle the response 
         if (response == IDYES) {
-            // User clicked Yes (do nothing or add any custom logic here)
+            // User clicked Yes 
         } else if (response == IDNO) {
-            // User clicked No (optional logic here)
+            // User clicked No 
         } else if (response == IDCANCEL) {
             // User clicked Cancel, exit the loop (terminate the program)
             break;
